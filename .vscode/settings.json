@@ -1,6 +1,6 @@
 {
   "files.associations": {
     "hal_key.h": "c",
-    "stdlib.h": "c"
+    // "stdlib.h": "c"
   }
 }
