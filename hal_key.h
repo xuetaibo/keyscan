@@ -16,45 +16,44 @@
 #define S4_PORT PORTC
 #define S4_PIN GPIO_Pin_2
 
-//°´¼ü¶¨Òå
+//æŒ‰é”®å®šä¹‰
 typedef enum { KEY_S2, KEY_S3, KEY_S4, KEY_NUM } KEY_TYPEDEF;
 
-//°´¼üµÄ×´Ì¬
+//æŒ‰é”®çš„çŠ¶æ€
 typedef enum {
-  KEY_IDLE,                   //¿ÕÏÐ
-  KEY_CLICK,                  //°´ÏÂ
-  KEY_CLICK_RELEASE,          //°´ÏÂ²¢ÊÍ·Å
-  KEY_LONG_PRESS,             //³¤°´
-  KEY_LONG_PRESS_CONTINUOUS,  //³¤°´¼ÌÐø
-  KEY_LONG_PRESS_RELEASE,     //³¤°´ÊÍ·Å
+  KEY_IDLE,                   //ç©ºé—²
+  KEY_CLICK,                  //æŒ‰ä¸‹
+  KEY_CLICK_RELEASE,          //æŒ‰ä¸‹å¹¶é‡Šæ”¾
+  KEY_LONG_PRESS,             //é•¿æŒ‰
+  KEY_LONG_PRESS_CONTINUOUS,  //é•¿æŒ‰ç»§ç»­
+  KEY_LONG_PRESS_RELEASE,     //é•¿æŒ‰é‡Šæ”¾
 } KEY_EVENT_TYPEDEF;
 
-//°´¼ü¼ì²â¹ý³Ì
+//æŒ‰é”®æ£€æµ‹è¿‡ç¨‹
 typedef enum {
-  KEY_STEP_WAIT,              //µÈ´ý°´¼ü°´ÏÂ
-  KEY_STEP_CLICK,             //°´¼ü°´ÏÂ
-  KEY_STEP_LONG_PRESS,        //°´¼ü³¤°´
-  KEY_STEP_CONTINUOUS_PRESS,  //°´¼ü³ÖÐø°´ÏÂ
+  KEY_STEP_WAIT,              //ç­‰å¾…æŒ‰é”®æŒ‰ä¸‹
+  KEY_STEP_CLICK,             //æŒ‰é”®æŒ‰ä¸‹
+  KEY_STEP_LONG_PRESS,        //æŒ‰é”®é•¿æŒ‰
+  KEY_STEP_CONTINUOUS_PRESS,  //æŒ‰é”®æŒç»­æŒ‰ä¸‹
 } KEY_STEP_TYPEDEF;
 
-//¶¨ÒåÒ»¸öº¯ÊýÖ¸ÕëÀàÐÍ
+//å®šä¹‰ä¸€ä¸ªå‡½æ•°æŒ‡é’ˆç±»åž‹
 typedef void (*KeyEvent_CallBack_t)(KEY_TYPEDEF keys, KEY_EVENT_TYPEDEF state);
 
-//°´¼üÉ¨Ãè¶¨Ê±Æ÷Tick,Ã¿¸öTickÊ±¼äÎª1ms
+//æŒ‰é”®æ‰«æå®šæ—¶å™¨Tick,æ¯ä¸ªTickæ—¶é—´ä¸º1ms
 #define KEY_SCANT_TICK 10  // 10ms
 
-//°´¼üÏû¶¶Ê±¼ä,ÒÔ10msÎªTick
+//æŒ‰é”®æ¶ˆæŠ–æ—¶é—´,ä»¥10msä¸ºTick
 #define KEY_SCANTIME 2  // 20ms
 
-//Á¬Ðø³¤°´Ê±¼ä,ÒÔ10msÎªTick
+//è¿žç»­é•¿æŒ‰æ—¶é—´,ä»¥10msä¸ºTick
 #define KEY_PRESS_LONG_TIME 200  // 2s
 
-//³ÖÐø³¤°´¼ä¸ôÊ±¼ä
+//æŒç»­é•¿æŒ‰é—´éš”æ—¶é—´
 #define KEY_PRESS_CONTINUE_TIME 15  // 150ms
 
 void hal_KeyInit(void);
 void hal_keyProc(void);
 void hal_KeyScanCBSRegister(KeyEvent_CallBack_t pCBS);
-void hal_KeyScan(void);
 
 #endif
